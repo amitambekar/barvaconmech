@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+          <script>
+          function myFunction(id) {
+              var x = document.getElementById(id);
+              if (x.className.indexOf("w3-show") == -1) {
+                  x.className += " w3-show";
+              } else { 
+                  x.className = x.className.replace(" w3-show", "");
+              }
+          }
+          </script>
+          <?php 
+              $category_list = getCategoryProductList();
+              foreach($category_list as $cl) { 
+                $category_name = isset($cl['category_name']) ? $cl['category_name'] : ''; ?>
+                <button onclick="myFunction('show_<?php echo $cl['category_id']; ?>')" class="w3-button w3-block w3-left-align" style="border-bottom: 1px solid #c5c5c5;"><?= $category_name; ?></button>
+                <div id="show_<?php echo $cl['category_id']; ?>" class="w3-hide w3-border">
+                    <ul class="w3-ul">
+                        <?php if(count($cl["product_array"]) > 0) { ?>
+                        <?php foreach($cl["product_array"] as $pa)
+                        { ?>
+                          <li style="padding: 0px 0px;"><a href="<?= site_url(); ?>/products/#product_id_<?php echo $pa['product_id']; ?>"><?php echo $pa['product_name']; ?></a></li>
+                        <?php  } ?>
+                        <?php } ?>
+                    </ul>  
+                </div>
+                
+          <?php 
+          }
+          ?>

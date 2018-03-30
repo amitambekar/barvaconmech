@@ -1,0 +1,8 @@
+.content h1 {
+    color: #f26f2f;
+    font-size: 38px;
+    text-align: center;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    line-height: 28px;
+}
