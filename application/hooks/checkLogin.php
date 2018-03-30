@@ -7,10 +7,10 @@ function login()
 	global $CI;
 	$controller_name = $CI->uri->segment(1);
 	$controller_name1 = $CI->uri->segment(2);
-	if($controller_name != 'admin')
+	/*if($controller_name != 'admin')
 	{
 		$CI->output->cache(15);
-	}
+	}*/
 	if($controller_name == "admin" && $controller_name1 != "login" && $CI->session->userdata('email') == '' && $CI->session->userdata('password') == '')
 	{
 		redirect('admin/login');

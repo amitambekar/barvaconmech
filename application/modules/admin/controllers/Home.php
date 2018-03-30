@@ -8,7 +8,7 @@ class Home extends MX_Controller {
 		$this->load->view('home');
 	}
 
-	public function clear_all_cache()
+	/*public function clear_all_cache()
 	{
 		$path = $this->config->item('cache_path');
 
@@ -24,6 +24,6 @@ class Home extends MX_Controller {
 	        }
 	    }
 	    closedir($handle);
-	}
+	}*/
 
 }

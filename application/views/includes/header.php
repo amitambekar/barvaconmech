@@ -23,7 +23,7 @@
 <div id="wrapper">
   <div class="header">
     <div class="container">
-      <div class="logo"> <a href="#"><img src="<?= base_url(); ?>assets/images/logo.png"></a> </div>
+      <div class="logo"> <a href="<?= base_url(); ?>"><img src="<?= base_url(); ?>assets/images/logo.png"></a> </div>
       <div class="contact">
         <?php 
           $contact_us = getConfigurationsData('header_contact_us');

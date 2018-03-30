@@ -40,7 +40,10 @@ $config['charset'] = 'iso-8859-1';
     $CI->email->subject($subject);
     $CI->email->message($html);
 
-    $CI->email->send();
+    if($_SERVER['SERVER_NAME'] != 'localhost')
+	{
+		$CI->email->send();	
+	}
     /*echo "SUCCESS";
     print_r($CI->email->print_debugger());
     
@@ -58,37 +61,5 @@ function product_image($path,$width = 70,$height=70)
 	return base_url('timthumb.php?src='.base_url('uploads/products/'.$path).'&w='.$width.'&h='.$height);
 }
 
-function getConfigurationsData($type = '')
-{
-	global $CI;
-	$CI->load->model('Common_model');
-	$result = $CI->Common_model->getConfigurationsData($type);
-	return $result;
-}
-
-function getProducts()
-{
-	global $CI;
-	$CI->load->model('Common_model');
-	$result = $CI->Common_model->getProducts();
-	return $result;	
-}
-
-function getProductList()
-{
-	global $CI;
-	$CI->load->model('Common_model');
-	$result = $CI->Common_model->getProductList();
-	return $result;	
-}
-
-function getCategoryProductList()
-{
-	global $CI;
-	$CI->load->model('Common_model');
-	$result = $CI->Common_model->getCategoryProductList();
-	return $result;		
-}
-
-$CI->output->enable_profiler(TRUE);
+//$CI->output->enable_profiler(TRUE);
 ?>
